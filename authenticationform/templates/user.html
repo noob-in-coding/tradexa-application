@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+</head>
+<body>
+    <h2>User registration</h2>
+    <form action="/register/" method="POST">
+        {% csrf_token %}
+        <label> First_name : </label>
+	    <br>
+	    <input type="text" name="Fname"
+	    placeholder="Enter your Name">
+	    <br>
+        <label> Last_name : </label>
+	    <br>
+	    <input type="text" name="Lname"
+	    placeholder="Enter your Name">
+	    <br>
+        <label> Emali_id : </label>
+	    <br>
+	    <input type="email" name="email"
+	    placeholder="Enter your Emali id">
+	    <br>
+        <label> Password : </label>
+	    <br>
+	    <input type="password" name="pwd"
+	    placeholder="Enter Password">
+	    <br>
+        <label> Username : </label>
+	    <br>
+	    <input type="test" name="usrnm"
+	    placeholder="Enter Username">
+	    <br>
+        <input type = "submit" value="Register"
+	    name="submit">
+	    
+
+        
+        
+
+
+    </form>
+
+</body>
+</html>
