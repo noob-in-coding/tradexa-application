@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from .models import My_User
 from .models import My_post
 from django.contrib import auth
+from django.contrib.auth.models import User, auth
+from django.contrib import messages
 
 # Create your views here.
 
@@ -28,14 +30,16 @@ def second(request):
 #for user authentication
 def Login(request):
     
-    usernme=request.POST['usrnme']
-    pswd=request.POST['pwd']
+    usernme=request.POST.get('usernm')
+    pswd=request.POST.get('passwd')
+    user=auth.authenticate(password=pswd,user_name=usernme)
+    if user is not None:
+        auth.login(request,user)
+        return render(request,'loginsuccess.html')
+    else:
+        return render(request,'loginsuccess.html')
     
-    v=auth.authenticate(user_name=usernme,  password=pswd)
-    
-    return render(request,'loginsuccess.html')
-   
-
+ 
 #to get post.html page
 def secondpage(request):
     return render(request,'post.html')
