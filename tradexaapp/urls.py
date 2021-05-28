@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from authenticationform import views
 
+#url for getting different pages
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.firstpage),

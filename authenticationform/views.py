@@ -4,9 +4,11 @@ from .models import My_post
 
 # Create your views here.
 
+#to get user.html page
 def firstpage(request):
      return render(request,'user.html')
-    
+
+#for storing data from html form in to the database that is created in My_User models   
 def register(request):
     
     fn=request.POST.get('Fname')
@@ -19,10 +21,11 @@ def register(request):
     
     return render(request,'done.html')
 
-
+#to get post.html page
 def secondpage(request):
     return render(request,'post.html')
 
+#for storing data from html form in to the database that is created in My_post models
 def posttext(request):
     
     txt=request.POST.get('myrecentpost')
