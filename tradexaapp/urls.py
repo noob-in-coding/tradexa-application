@@ -22,8 +22,9 @@ from authenticationform import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.firstpage),
+    path('login.html/',views.second),
     path('register/',views.register),
-    path('register/login.html',views.second),
+    
     path('Login/',views.Login),
     path('Login/post.html/',views.secondpage),
     path('Login/post.html/posttext',views.posttext),

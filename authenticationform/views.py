@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import My_User
 from .models import My_post
 from django.contrib import auth
