@@ -25,6 +25,7 @@ def register(request):
 def second(request):
     return render(request,'login.html')
 
+#for user authentication
 def Login(request):
     
     usernme=request.POST['usrnme']
