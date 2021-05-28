@@ -37,7 +37,7 @@ def Login(request):
         auth.login(request,user)
         return render(request,'loginsuccess.html')
     else:
-        return render(request,'loginsuccess.html')
+        return render(request,'login.html')
     
  
 #to get post.html page
