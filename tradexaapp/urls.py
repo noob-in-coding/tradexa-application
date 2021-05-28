@@ -23,8 +23,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.firstpage),
     path('register/',views.register),
-    path('register/post.html/',views.secondpage),
-    path('register/post.html/posttext',views.posttext),
-    path('register/post.html/user.html',views.firstpage),
+    path('register/login.html',views.second),
+    path('Login/',views.Login),
+    path('Login/post.html/',views.secondpage),
+    path('Login/post.html/posttext',views.posttext),
+    path('Login/post.html/user.html',views.firstpage),
     
 ]

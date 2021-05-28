@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import My_User
 from .models import My_post
+from django.contrib import auth
 
 # Create your views here.
 
@@ -20,6 +21,19 @@ def register(request):
     u.save()
     
     return render(request,'done.html')
+
+def second(request):
+    return render(request,'login.html')
+
+def Login(request):
+    
+    usernme=request.POST['usrnme']
+    pswd=request.POST['pwd']
+    
+    v=auth.authenticate(user_name=usernme,  password=pswd)
+    
+    return render(request,'loginsuccess.html')
+   
 
 #to get post.html page
 def secondpage(request):
