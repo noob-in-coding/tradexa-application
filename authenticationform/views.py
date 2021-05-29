@@ -41,10 +41,12 @@ def Login(request):
             for i,j in data.items():
                 if i==j:
                     print (i==j)
+                else:
+                    print (False)
 
         user=authen( username=username1 , password=password1)
         
-        if user is not None:
+        if user==True:
             login(request,user)
             return render(request,'loginsuccess.html')
         else:
