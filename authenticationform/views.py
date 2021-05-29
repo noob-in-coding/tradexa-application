@@ -1,9 +1,12 @@
+
 from django.shortcuts import render,redirect
 from .models import My_User
+ 
 from .models import My_post
-from django.contrib import auth
+from django.contrib.auth import authenticate,login
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+from django.core.exceptions import ObjectDoesNotExist 
 
 # Create your views here.
 
@@ -19,7 +22,7 @@ def register(request):
     emid=request.POST.get('email')
     pawd=request.POST.get('pwd')
     usrnm=request.POST.get('usrnm')
-    u=My_User( first_name=fn, last_name=ln, mail=emid, password=pawd, user_name=usrnm )
+    u=My_User( first_name=fn, last_name=ln, mail=emid, password=pawd, username=usrnm )
     u.save()
     
     return render(request,'done.html')
@@ -27,19 +30,26 @@ def register(request):
 def second(request):
     return render(request,'login.html')
 
+
+
 #for user authentication
 def Login(request):
-    
-    usernme=request.POST.get('usernm')
-    pswd=request.POST.get('passwd')
-    user=auth.authenticate(password=pswd,user_name=usernme)
-    if user is not None:
-        auth.login(request,user)
-        return render(request,'loginsuccess.html')
-    else:
-        return render(request,'login.html')
-    
- 
+    if request.method == "POST" :
+        username1=request.POST['usernm']
+        password1=request.POST['passwd']
+        def authen(**data):
+            for i,j in data.items():
+                if i==j:
+                    print (i==j)
+
+        user=authen( username=username1 , password=password1)
+        
+        if user is not None:
+            login(request,user)
+            return render(request,'loginsuccess.html')
+        else:
+            return render(request,'login.html')
+
 #to get post.html page
 def secondpage(request):
     return render(request,'post.html')

@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 #for creating database of My_User
@@ -7,8 +8,9 @@ class My_User(models.Model):
     first_name=models.CharField(max_length=70,primary_key=True)
     last_name=models.CharField(max_length=70)
     mail=models.EmailField()
-    password=models.CharField(max_length=60)
-    user_name=models.CharField(max_length=70)
+    username=models.CharField(max_length=70)
+    password=models.IntegerField(max_length=60)
+    
 
 #for creating database of My_post
 class My_post(models.Model):
