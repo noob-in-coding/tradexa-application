@@ -35,19 +35,20 @@ def second(request):
 #for user authentication
 def Login(request):
     if request.method == "POST" :
-        username1=request.POST['usernm']
-        password1=request.POST['passwd']
-        def authen(**data):
+        username1=request.POST.get('usernm')
+        password1=request.POST.get('passwd')
+        def authe(**data):
             for i,j in data.items():
                 if i==j:
                     print (i==j)
                 else:
                     print (False)
 
-        user=authen( username=username1 , password=password1)
+        authe( username='username1' , password= 'password1' )
+        print(authe)
         
-        if user==True:
-            login(request,user)
+        if authe==True:
+            login(request,authe)
             return render(request,'loginsuccess.html')
         else:
             return render(request,'login.html')
