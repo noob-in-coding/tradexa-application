@@ -37,21 +37,12 @@ def Login(request):
     if request.method == "POST" :
         username1=request.POST.get('usernm')
         password1=request.POST.get('passwd')
-        def authe(**data):
-            for i,j in data.items():
-                if i==j:
-                    print (i==j)
-                else:
-                    print (False)
-
-        authe( username='username1' , password= 'password1' )
-        print(authe)
-        
-        if authe==True:
-            login(request,authe)
-            return render(request,'loginsuccess.html')
-        else:
+        user=authenticate(username=username1,password=password1)
+        if user==True:
+            login(request,user)
             return render(request,'login.html')
+        else:
+            return render(request,'log.html')
 
 #to get post.html page
 def secondpage(request):
